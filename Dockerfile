@@ -19,6 +19,8 @@ RUN npm run build
 # ==========================================
 FROM nginx:alpine
 
+LABEL org.opencontainers.image.source="https://github.com/hzdevops52/hassan_devops_portfolio"
+
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 COPY --from=builder /app/dist /usr/share/nginx/html
