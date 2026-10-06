@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import {
   ArrowUpRight,
+  BriefcaseBusiness,
   Github,
   Linkedin,
   Mail,
@@ -20,6 +21,18 @@ const contactLinks = [
     href: "https://www.linkedin.com/in/hassan-zubair-50b53a31b/",
     icon: Linkedin,
   },
+  {
+    label: "Taskpull",
+    value: "taskpull.com/sellers/hassan-zubair",
+    href: "https://taskpull.com/sellers/hassan-zubair",
+    icon: BriefcaseBusiness,
+  },
+  {
+    label: "Fiverr",
+    value: "fiverr.com/hassanzubair52",
+    href: "https://www.fiverr.com/hassanzubair52",
+    icon: BriefcaseBusiness,
+  },
 ];
 
 function Contact() {
@@ -36,9 +49,7 @@ function Contact() {
           <div className="contact-glow" />
 
           <div className="contact-content">
-            <span className="section-eyebrow mono">
-              06 / CONTACT
-            </span>
+            <span className="section-eyebrow mono">06 / CONTACT</span>
 
             <div className="contact-icon">
               <MessageSquare size={22} />

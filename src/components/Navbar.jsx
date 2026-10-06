@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const navItems = [
   { label: "About", href: "#about" },
+  { label: "Services", href: "#services" },
   { label: "Skills", href: "#skills" },
   { label: "Pipeline", href: "#pipeline" },
   { label: "Projects", href: "#projects" },
@@ -14,12 +15,29 @@ const navItems = [
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const closeMenu = () => setMenuOpen(false);
+  const handleNavigation = (href) => {
+    setMenuOpen(false);
+
+    const target = document.querySelector(href);
+
+    if (target) {
+      setTimeout(() => {
+        target.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }, 50);
+    }
+  };
 
   return (
     <header className="navbar">
       <div className="container navbar-inner">
-        <a href="#home" className="navbar-brand" onClick={closeMenu}>
+        <a
+          href="#home"
+          className="navbar-brand"
+          onClick={() => setMenuOpen(false)}
+        >
           <span className="navbar-brand-icon">
             <Terminal size={17} strokeWidth={2} />
           </span>
@@ -32,13 +50,27 @@ function Navbar() {
 
         <nav className="navbar-links">
           {navItems.map((item) => (
-            <a key={item.href} href={item.href}>
+            <a
+              key={item.href}
+              href={item.href}
+              onClick={(event) => {
+                event.preventDefault();
+                handleNavigation(item.href);
+              }}
+            >
               {item.label}
             </a>
           ))}
         </nav>
 
-        <a href="#contact" className="navbar-contact">
+        <a
+          href="#contact"
+          className="navbar-contact"
+          onClick={(event) => {
+            event.preventDefault();
+            handleNavigation("#contact");
+          }}
+        >
           Let's Connect
         </a>
 
@@ -67,7 +99,10 @@ function Navbar() {
                 <a
                   key={item.href}
                   href={item.href}
-                  onClick={closeMenu}
+                  onClick={(event) => {
+                    event.preventDefault();
+                    handleNavigation(item.href);
+                  }}
                 >
                   {item.label}
                 </a>
@@ -76,7 +111,10 @@ function Navbar() {
               <a
                 href="#contact"
                 className="navbar-mobile-contact"
-                onClick={closeMenu}
+                onClick={(event) => {
+                  event.preventDefault();
+                  handleNavigation("#contact");
+                }}
               >
                 Let's Connect
               </a>
