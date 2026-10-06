@@ -116,7 +116,7 @@ function Hero() {
 
             <div className="hero-profile-image">
               <img
-                src="/assets/profile.jpeg"
+                src={`${import.meta.env.BASE_URL}assets/profile.jpeg`}
                 alt="Hassan Zubair — DevOps Engineer"
               />
             </div>
