@@ -5,10 +5,17 @@ import {
   Github,
   Linkedin,
   Mail,
+  MessageCircle,
   MessageSquare,
 } from "lucide-react";
 
 const contactLinks = [
+  {
+    label: "WhatsApp",
+    value: "+92 327 7495256",
+    href: "https://wa.me/923277495256",
+    icon: MessageCircle,
+  },
   {
     label: "GitHub",
     value: "github.com/hzdevops52",
